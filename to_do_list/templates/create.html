@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Создание новой задачи</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-<h1>Создать новую задачу</h1>
+{% block content %}
 
-<form action="/create/" method="post">
+<form action="{% url 'create' %}" method="post">
     {% csrf_token %}
 
     <label>Описание:</label><br/>
-    <input type="text" name="description"/><br/>
+    <input type="text" name="description" required/><br/>
 
     <label>Выполнить до:</label><br/>
-    <textarea name="date"></textarea><br/>
+    <input type="date" name="date"/><br/>
 
     <label>Состояние:</label><br/>
     <label>
@@ -26,9 +21,11 @@
             </select>
     </label>
     <br/>
+    <label>Подробное описание:</label><br/>
+    <input type="text" name="detailed_desc"/><br/>
     <input type="submit" value="Send"/>
 </form>
 
-<a href="/" class="fs-3">Вернуться на главную страницу</a>
-</body>
-</html>
+{% endblock %}
+
+
