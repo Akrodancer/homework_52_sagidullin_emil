@@ -4,5 +4,7 @@
     <p>Описание: {{ task.description }}</p>
     <p>Статус: {{ task.status }}</p>
     <p>Выполнить до: {{ task.date }}</p>
-    <p>Дополнительная информация: {{ task.detailed_desc }}</p>
+    <p>Дополнительная информация: {{ task.detailed_desc }}</p></br>
+    <a href="{% url 'update' task.pk %}">Редактировать</a>
+
 {% endblock %}

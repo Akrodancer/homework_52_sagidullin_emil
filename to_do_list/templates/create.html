@@ -4,26 +4,7 @@
 {% block content %}
 
 <form action="{% url 'create' %}" method="post">
-    {% csrf_token %}
-
-    <label>Описание:</label><br/>
-    <input type="text" name="description" required/><br/>
-
-    <label>Выполнить до:</label><br/>
-    <input type="date" name="date"/><br/>
-
-    <label>Состояние:</label><br/>
-    <label>
-            <select name="status">
-            {% for elem in status_choice %}
-                <option value="{{ elem.0 }}">{{ elem.1 }}</option>
-            {% endfor %}
-            </select>
-    </label>
-    <br/>
-    <label>Подробное описание:</label><br/>
-    <input type="text" name="detailed_desc"/><br/>
-    <input type="submit" value="Send"/>
+    {% include 'partial/create_&_update.html' with button_text='Создать' %}
 </form>
 
 {% endblock %}
